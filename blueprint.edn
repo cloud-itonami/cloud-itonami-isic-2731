@@ -1,0 +1,41 @@
+{:itonami.blueprint/id "cloud-itonami-isic-2731"
+ :itonami.blueprint/name "Manufacture of fibre optic cables"
+ :itonami.blueprint/isic-rev5 "2731"
+ :itonami.blueprint/domain :electrical-equipment/manufacturing
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:worker-safety :product-safety :network-infrastructure-reliability]
+ :itonami.blueprint/governor :fibre-optic-cable-plant-operations-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger :eda :cae]
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "FibreOpticCableAdvisor ⊣ Fibre Optic Cable Plant Operations Governor,
+ langgraph-clj StateGraph, append-only audit ledger. A plant OPERATIONS
+ COORDINATION actor for ISIC 2731 (manufacture of fibre optic cables --
+ drawing fibre from a glass preform on a fibre-draw tower (with in-line
+ primary/secondary UV-cured acrylate coating), then cabling (stranding
+ coated fibres into buffer tubes or ribbons and jacketing/extruding the
+ finished cable) -- producing finished cable-reel units of loose-tube /
+ ribbon / tight-buffered / ADSS product families) -- not direct
+ drawing/coating/cabling-line-equipment control authority and not
+ fibre-optic-cable-compliance-certification authority (e.g. Telcordia
+ GR-20, ITU-T G.65x, UL/NFPA fire-rating compliance mark). Four ops
+ (`:log-production-batch` / `:schedule-maintenance` /
+ `:flag-safety-concern` / `:coordinate-shipment`), all `:effect
+ :propose` only. Twelve concrete governor checks elaborate this
+ blueprint's four HARD invariants: propose-only effect, closed op
+ allowlist, closed proposal-effect allowlist (no direct
+ drawing/coating/cabling-line-equipment control), permanent
+ equipment-actuate block, permanent compliance-certification-authority
+ block (this actor never self-issues a fibre-optic-cable compliance
+ mark), independent equipment verification/registration before
+ maintenance scheduling, independent batch verification/registration
+ before shipment coordination, independent shipment-quantity recompute
+ against the batch's own logged production quantity, double-schedule
+ guard, product-type validation, attenuation-dB/km plausibility
+ validation, and defect-rate plausibility validation. Safety-concern
+ flagging (fibre-breakage-hazard/coating-oven-thermal-hazard/
+ equipment-safety concern) ALWAYS escalates to a human plant
+ supervisor; `:log-production-batch` is the only op eligible to
+ auto-commit, and only at phase 3 when governor-clean."}
