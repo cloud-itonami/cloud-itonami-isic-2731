@@ -1,0 +1,18 @@
+{:format :kotoba.cljk-origin/v1
+ :renamed-on "2026-09-11"
+ :decision "adr-2609111500-cljk-rename-all-clojure-source (com-junkawasaki/root 90-docs/adr; owner instruction 2026-09-11)"
+ :rule "value = the extension the file had before the rename. A path ending in .clj.cljk or .cljs.cljk kept it in the name because both platform files existed (or the plain target was taken)."
+ :origins
+ {"src/fibreopticmfg/advisor.cljk" ".cljc"
+  "src/fibreopticmfg/governor.cljk" ".cljc"
+  "src/fibreopticmfg/operation.cljk" ".cljc"
+  "src/fibreopticmfg/phase.cljk" ".cljc"
+  "src/fibreopticmfg/registry.cljk" ".cljc"
+  "src/fibreopticmfg/render_html.cljk" ".clj"
+  "src/fibreopticmfg/sim.cljk" ".cljc"
+  "src/fibreopticmfg/store.cljk" ".cljc"
+  "test/fibreopticmfg/governor_contract_test.cljk" ".cljc"
+  "test/fibreopticmfg/operation_test.cljk" ".cljc"
+  "test/fibreopticmfg/phase_test.cljk" ".cljc"
+  "test/fibreopticmfg/registry_test.cljk" ".cljc"
+  "test/fibreopticmfg/store_contract_test.cljk" ".cljc"}}
