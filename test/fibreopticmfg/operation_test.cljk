@@ -4,7 +4,7 @@
   contract (HARD holds, escalation, phase gating) is exercised in
   `fibreopticmfg.governor-contract-test`; the Store contract in
   `fibreopticmfg.store-contract-test`."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [fibreopticmfg.operation :as op]
             [fibreopticmfg.store :as store]))
